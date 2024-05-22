@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GP-Monde</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -20,6 +21,9 @@
             width: 15%;
             height: 100%;
             background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
         }
         .right-side {
             width: 85%;
@@ -34,26 +38,603 @@
             width: 98%;
             height: 8%;
             background-color: #ffffff;
+            padding-left: 2rem;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            
+            border-bottom-left-radius: .7rem;
+            border-bottom-right-radius:.7rem;
+        }
+        
+        .logo {
+            /* border: 1px solid purple; */
+            height: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                max-width: 90%;
+            }
+        }
+        .buttons {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5rem;
+            button {
+                width: 95%;
+                height: 3.5rem;
+                background-color: #ffffff;
+                border: 1px solid white;
+                border-radius:.4rem;
+                font-size: 20px;
+                border: 2px solid ;
+                font-weight: bold;
+                color: #9E00FF;
+                cursor: pointer;
+                margin: .8rem;
+            }
+        }
+        .buttons>button:hover {
+            background-color: #9E00FF;
+            color: #ffffff;
+            /* border: 2px solid #9E00FF; */
+            cursor: pointer;
+            transition: all .3s;
+        }
+
+        .burger {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .burger:hover {
+            /* background-color: #9E00FF; */
+            color: #000000 !important;
+            cursor: pointer;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            transition: all ;
+        }
+        .theme {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin-left: 2%;
+            cursor: pointer;
+            transition: all.3s;
+        }
+        .theme:hover {
+            background-color: #9d00ffd8;
+            color: #ffffff !important;
+            cursor: pointer;
+            transition: all .1s;
+            i {
+                color: #ffffff !important;
+            }
+        }
+        .dateoftheday {
+            width: 15%;
+            height: 70%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
             font-size: 20px;
             font-weight: bold;
-            border-bottom-left-radius: .7rem;
-            border-bottom-right-radius:.7rem;
+            border-radius:.7rem;
+            background-color: #9d00ffa9;
+            position: relative;
+            left: 75%;
+            i {
+                margin: 1rem;
+            }
+        }
+        .titre {
+            width: 100%;
+            height: 7%;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center;
+            color: rgb(0, 0, 0);
+            font-size: .7rem;
+            padding-left: 1rem;
+            border-radius:.7rem;
+            background-color: #ffffff;
+
+        }
+        
+        .content {
+            width: 98%;
+            height: 88%;
+            /* background-color: #ffffff; */
+            display: flex;
+            flex-direction: column;
+            /* justify-content: center; */
+            /* align-items: center; */
+            color: white;
+            /* border: 2px dashed white; */
+            border-radius:.7rem;
+
+            margin-top: .5rem;
+        }
+        .content-cargaison {
+            width: 100%;
+            height: 85%;
+            margin-top: .5%;
+            display: flex;
+            /* justify-content: center;
+            align-items: center; */
+            background-color: rgb(238, 238, 238);
+            border-radius:.7rem;
+        }
+        .list-cargaison {
+            width: 85%;
+            height: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .5rem;
+            /* justify-content: center;
+            align-items: center; */
+            /* border: 2px solid yellow; */
+        }
+        .card-cargaison {
+            width: 22.5%;
+            height: 50%;
+            display: flex;
+            /* justify-content: center; */
+            align-items: center; 
+            flex-direction: column;
+            padding: .7rem;
+            border-radius:.7rem;
+            background-color: #ffffff;
+        }
+        .cover {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 45%;
+            width: 95%;
+            background-color: whitesmoke;
+            border-radius: .7rem;
+            cursor: pointer;
+        }
+        .sticky {
+            width: 60%;
+            height: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius:.7rem;
+        }
+        .aerien {
+            background-color: #408cff27;
+            color: #408cff;
+        }
+        .maritime {
+            background-color: #9d00ff27;
+            color: #9E00FF;
+        }
+        .terrestre {
+            background-color: #ffbb0027;
+            color: #ffbb00;
+        }
+        .add-cargaison {
+            width: 24%;
+            height: 70%;
+            border-radius: .7rem;
+            background-color: #ffffff;
+            color: #000000 !important;
+            font-size: 1.2rem !important;
+            display: flex;
+            /* justify-content: center; */
+            flex-direction: column;
+            padding-left: 1rem;
+            padding-top: 1rem;
+            input, select, button {
+                width: 95%;
+                height: 10%;
+                border: 1px solid #000000;
+                border-radius:.2rem;
+                font-size: 1rem !important;
+                padding-left: 1rem;
+                background-color: transparent;
+                padding-right: 1rem;
+            }
+            label {
+                margin-top: 1rem;
+            }
+            span {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #9E00FF;
+            }
+            
+
+        }
+        .produit {
+            width: 100%;
+            height: initial-height;
+            display: flex;
+            flex-wrap: wrap;
+            /* justify-content: center;
+            align-items: center; */
+            font-size: .8rem;
+            font-weight: bold;
+            border-radius:.7rem;
+            margin-top: 3%;
+            /* border: 2px solid red; */
+            span {
+                border: 1px solid ;
+                border-radius: .2rem;
+                margin: .2rem;
+                padding: .2rem;
+            }
+
+        }
+        .details {
+            width: 100%;
+            /* border: 2px solid red; */
+            height: initial-height;
+            display: flex;
+            color: #000000;
+            flex-wrap: wrap;
+            gap: 1rem;
+            /* justify-content: center;
+            align-items: center; */
+            font-size: .8rem;
+            font-weight: bold;
+            border-radius:.7rem;
+            margin-top: 15%;
+            /* border: 2px solid red; */
+            div {
+                width: 100%;
+            }
+            span {
+                /* border: 1px solid ;
+                border-radius: .2rem; */
+                margin: .2rem;
+                padding: .2rem;
+            }
         }
     </style>
 </head>
 <body>
 
-
-    <div class="sidebar"></div>
+    <!-- sidebar menu -->
+    <div class="sidebar">
+        <div class="logo">
+            <img src="Frame 348.png" alt="">
+        </div>
+        <div class="buttons">
+            <button>Dashboard</button>
+            <button>Cargaison</button>
+            <button>Produits / Colis</button>
+        </div>
+    </div>
 
 
     <div class="right-side">
-        <div class="header"></div>
+        <!-- Header -->
+        <div class="header">
+            <i class="burger fa-solid fa-bars-staggered fa-xl" style="color: #9e00ff; width: 2rem;"></i>
+            <div class="theme"><i class="fa-solid fa-sun fa-lg" style="color: #9e00ff;"></i></div>
+            <div class="dateoftheday"><i class="fa-regular fa-calendar" style="color: #ffffff;"></i>19/05/2024</div>
+        </div>
 
+        <!-- Contenu de chaque page -->
+        <div class="content">
+            <div class="titre">
+                <h1>Cargaison - Ajout Cargaison</h1>
+            </div>
+
+            <div class="content-cargaison" style="overflow: scroll;">
+                <!-- Lister cargaison -->
+                <div class="list-cargaison">
+                    
+                    <div class="card-cargaison" style="width: 98%; flex-direction: row; height: 20%;">
+                        <div class="cover">
+                            <div class="sticky aerien">
+                                <span>Aérienne</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <span style="color: orange;">Fragile</span>
+                            <span style="color: blue;">Alimentaire</span>
+                            <!-- <span style="color: red;">Chimique</span> -->
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-cargaison">
+                        <div class="cover">
+                            <div class="sticky maritime">
+                                <span >Maritime</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <!-- <span style="color: orange;">Fragile</span> -->
+                            <span style="color: blue;">Alimentaire</span>
+                            <span style="color: red;">Chimique</span>
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-cargaison">
+                        <div class="cover">
+                            <div class="sticky terrestre">
+                                <span>Terrestre</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <!-- <span style="color: orange;">Fragile</span> -->
+                            <span style="color: blue;">Alimentaire</span>
+                            <span style="color: red;">Chimique</span>
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-cargaison">
+                        <div class="cover">
+                            <div class="sticky maritime">
+                                <span >Maritime</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <!-- <span style="color: orange;">Fragile</span> -->
+                            <span style="color: blue;">Alimentaire</span>
+                            <span style="color: red;">Chimique</span>
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-cargaison">
+                        <div class="cover">
+                            <div class="sticky aerien">
+                                <span>Aérienne</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <span style="color: orange;">Fragile</span>
+                            <span style="color: blue;">Alimentaire</span>
+                            <!-- <span style="color: red;">Chimique</span> -->
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-cargaison">
+                        <div class="cover">
+                            <div class="sticky maritime">
+                                <span >Maritime</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <!-- <span style="color: orange;">Fragile</span> -->
+                            <span style="color: blue;">Alimentaire</span>
+                            <span style="color: red;">Chimique</span>
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-cargaison">
+                        <div class="cover">
+                            <div class="sticky terrestre">
+                                <span>Terrestre</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <!-- <span style="color: orange;">Fragile</span> -->
+                            <span style="color: blue;">Alimentaire</span>
+                            <span style="color: red;">Chimique</span>
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-cargaison">
+                        <div class="cover">
+                            <div class="sticky maritime">
+                                <span >Maritime</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <!-- <span style="color: orange;">Fragile</span> -->
+                            <span style="color: blue;">Alimentaire</span>
+                            <span style="color: red;">Chimique</span>
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-cargaison">
+                        <div class="cover">
+                            <div class="sticky aerien">
+                                <span>Aérienne</span>
+                            </div>
+                        </div>
+                        <div class="produit">
+                            <span style="color: orange;">Fragile</span>
+                            <span style="color: blue;">Alimentaire</span>
+                            <!-- <span style="color: red;">Chimique</span> -->
+                            <span style="color: chartreuse;">Incassable</span>
+                        </div>
+                        
+                        <div class="details">
+                            <!-- le poids total , le nombre de produits dans la cargaison et le poids restant !!! -->
+                            <div class="poids-total">
+                                <span>Poids total</span>
+                                <span style="color: #9e00ff; margin-left: 41%;">1000 Kg</span>
+                            </div>
+                            <div class="poids-restant">
+                                <span>Poids restant</span>
+                                <span style="color: #9e00ff; margin-left: 35%;">1000 Kg</span>
+                            </div>
+                            <div class="nb-produit">
+                                <span>Nombre de produits</span>
+                                <span style="color: #9e00ff; margin-left: 26%;">10/10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Ajouter cargaison -->
+                <form class="add-cargaison">
+                    <span style="text-align: center;">Ajouter Cargaison</span>
+                    <label for="">libelle</label>
+                    <input type="text" placeholder="Nom de la cargaison">
+                    <label for="">Type de cargaison</label>
+                    <select name="typeCargaison" id="">
+                        <option value="">Selectionnez une Cargaison...</option>
+                        <option value="">Aérienne</option>
+                        <option value="">Maritime</option>
+                        <option value="">Terrestre</option>
+                    </select>
+                    <label for="">Poids total</label>
+                    <input type="number" placeholder="Poids total" style="padding-right: 1rem;">
+                    <label for="">Distance (Km)</label>
+                    <input type="number" placeholder="Distance (Km)" style="padding-right: 1rem;">
+                    <button style="background-color: #9E00FF; border: none; color: white; font-weight: 700; margin-top: 1rem; cursor: pointer;"> Valider</button>
+                </form>
+
+            </div>
+            
+        </div>
     </div>
 
 
